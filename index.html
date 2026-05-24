@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SPOART·BRASIL — Brasil no se visita. Se vive.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1a3a2a;
+    --green-2:#13301f;
+    --green-3:#0f2618;
+    --green-soft:#2b5440;
+    --green-line:rgba(245,240,232,.16);
+    --cream:#f5f0e8;
+    --cream-2:#ece5d8;
+    --cream-3:#e3dac8;
+    --orange:#e8821a;
+    --orange-hi:#f1932f;
+    --ink:#1a3a2a;
+    --ink-soft:rgba(26,58,42,.72);
+    --ink-mute:rgba(26,58,42,.55);
+    --hair:rgba(26,58,42,.12);
+    --hair-strong:rgba(26,58,42,.22);
+    --whats:#25D366;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Nunito",system-ui,sans-serif;
+    background:var(--cream);color:var(--ink);
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  img{display:block;max-width:100%}
+
+  .serif{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.005em}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  @media (max-width:760px){.wrap{padding:0 22px}}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--green);color:var(--cream);
+    border-bottom:1px solid var(--green-line);
+  }
+  .nav-inner{
+    max-width:1440px;margin:0 auto;
+    padding:18px 40px;
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;
+  }
+  .logo{
+    font-family:"Playfair Display",serif;
+    font-size:24px;font-weight:600;letter-spacing:.04em;
+    display:inline-flex;align-items:center;gap:10px;color:var(--cream);
+  }
+  .logo .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--orange);
+    box-shadow:0 0 0 4px rgba(232,130,26,.18);
+  }
+  .nav-links{
+    justify-self:center;
+    display:flex;gap:42px;
+    font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(245,240,232,.78);
+  }
+  .nav-links a{transition:.18s;position:relative;padding:6px 0}
+  .nav-links a:hover{color:var(--cream)}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:var(--orange);transform:scaleX(0);transform-origin:left;transition:.22s;
+  }
+  .nav-links a:hover::after{transform:scaleX(1)}
+  .btn-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:var(--green-3);
+    padding:13px 22px;border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    transition:.18s;
+  }
+  .btn-cta:hover{background:var(--orange-hi);transform:translateY(-1px)}
+  .btn-cta.lg{padding:18px 32px;font-size:15px;border-radius:999px}
+  @media (max-width:900px){
+    .nav-inner{grid-template-columns:auto 1fr auto;gap:16px}
+    .nav-links{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;min-height:92vh;
+    color:var(--cream);
+    display:flex;align-items:center;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:-2;
+    background:
+      linear-gradient(180deg, rgba(15,38,24,.6) 0%, rgba(15,38,24,.3) 35%, rgba(15,38,24,.88) 100%),
+      url("assets/hero-rio-preguicas.jpg") center/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(80% 60% at 50% 40%, transparent 40%, rgba(15,38,24,.45) 100%);
+  }
+  .hero-inner{
+    position:relative;z-index:1;
+    width:100%;max-width:1280px;margin:0 auto;
+    padding:140px 40px 100px;
+    text-align:center;
+  }
+  .hero-eye{
+    display:inline-flex;align-items:center;gap:14px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(245,240,232,.78);
+    margin-bottom:36px;
+  }
+  .hero-eye .sp,.hero-eye .o,.hero-eye .art{color:var(--orange);font-weight:500}
+  .hero-eye .sep{color:rgba(245,240,232,.4)}
+  h1.hero-title{
+    font-family:"Playfair Display",serif;
+    font-weight:500;font-style:italic;
+    font-size:clamp(52px,8vw,128px);
+    line-height:.98;letter-spacing:-.025em;
+    margin:0 0 32px;
+  }
+  h1.hero-title .line{display:block}
+  h1.hero-title .accent{color:var(--orange);font-style:normal;font-weight:400}
+  .hero-sub{
+    font-size:clamp(16px,1.4vw,20px);
+    line-height:1.5;color:rgba(245,240,232,.88);
+    max-width:54ch;margin:0 auto 44px;
+    font-weight:300;
+  }
+  .hero-cta-row{
+    display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;
+  }
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:18px 28px;border-radius:999px;
+    color:var(--cream);
+    border:1px solid rgba(245,240,232,.36);
+    font-size:14px;font-weight:500;letter-spacing:.02em;
+    transition:.18s;background:rgba(245,240,232,.04);
+    backdrop-filter:blur(6px);
+  }
+  .btn-ghost:hover{background:rgba(245,240,232,.10);border-color:rgba(245,240,232,.6)}
+  .hero-scroll{
+    position:absolute;left:50%;bottom:36px;transform:translateX(-50%);z-index:1;
+    color:rgba(245,240,232,.7);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+  }
+  .hero-scroll .arrow{
+    width:1px;height:46px;background:rgba(245,240,232,.5);position:relative;
+    animation:scrollPulse 2.4s ease-in-out infinite;
+  }
+  .hero-scroll .arrow::after{
+    content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+    width:7px;height:7px;border-right:1px solid rgba(245,240,232,.7);
+    border-bottom:1px solid rgba(245,240,232,.7);transform:translateX(-50%) rotate(45deg);
+    bottom:-3px;
+  }
+  @keyframes scrollPulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+  /* ============ SP·O·ART ============ */
+  .spoart{
+    background:var(--cream);
+    padding:140px 0 130px;
+    position:relative;
+  }
+  .spoart-head{
+    text-align:center;max-width:780px;margin:0 auto 90px;
+  }
+  .eye-mono{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--orange);
+    margin-bottom:24px;
+  }
+  .eye-mono .l{width:28px;height:1px;background:var(--orange);opacity:.7}
+  .spoart-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(34px,4vw,52px);letter-spacing:-.015em;line-height:1.1;
+    margin:0 0 18px;color:var(--green);
+  }
+  .spoart-head h2 em{font-style:italic;color:var(--ink-mute);font-weight:400}
+  .spoart-head p{
+    font-size:17px;line-height:1.6;color:var(--ink-soft);margin:0;
+    max-width:56ch;margin:0 auto;
+  }
+  .spoart-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    position:relative;
+  }
+  @media (max-width:860px){.spoart-grid{grid-template-columns:1fr;gap:40px}}
+  .spoart-col{
+    text-align:center;padding:24px 36px;
+    position:relative;
+  }
+  .spoart-col + .spoart-col::before{
+    content:"";position:absolute;left:0;top:20px;bottom:20px;width:1px;
+    background:var(--hair-strong);
+  }
+  @media (max-width:860px){.spoart-col + .spoart-col::before{display:none}}
+  .spoart-letter{
+    font-family:"Playfair Display",serif;
+    font-weight:600;font-size:clamp(54px,7vw,96px);
+    line-height:.95;color:var(--green);
+    margin-bottom:14px;
+    letter-spacing:-.02em;
+  }
+  .spoart-letter .lo{color:var(--orange)}
+  .spoart-word{
+    font-family:"Nunito",sans-serif;font-weight:700;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:22px;display:block;
+  }
+  .spoart-col p{
+    font-size:15px;color:var(--ink-soft);margin:0;line-height:1.55;
+    max-width:22ch;margin:0 auto;
+  }
+
+  /* ============ DIFERENCIADORES ============ */
+  .diffs{
+    background:var(--cream-2);
+    padding:120px 0;
+    border-top:1px solid var(--hair);
+    border-bottom:1px solid var(--hair);
+  }
+  .diffs-head{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;
+    margin-bottom:72px;
+  }
+  @media (max-width:860px){.diffs-head{grid-template-columns:1fr;gap:18px}}
+  .diffs-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(34px,4vw,52px);letter-spacing:-.015em;line-height:1.05;
+    margin:0;color:var(--green);max-width:14ch;
+  }
+  .diffs-head h2 em{font-style:italic;color:var(--ink-mute);font-weight:400}
+  .diffs-head p{
+    font-size:16px;color:var(--ink-soft);margin:0;max-width:44ch;line-height:1.6;
+  }
+  .diffs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair-strong)}
+  @media (max-width:1000px){.diffs-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.diffs-grid{grid-template-columns:1fr}}
+  .diff{
+    background:var(--cream-2);padding:36px 30px;
+    display:flex;flex-direction:column;gap:18px;
+    transition:.22s;
+  }
+  .diff:hover{background:var(--cream)}
+  .diff-num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;color:var(--orange);font-weight:500;
+  }
+  .diff-icon{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--green);color:var(--orange);
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .diff-icon svg{width:22px;height:22px}
+  .diff h3{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:24px;color:var(--green);margin:0;line-height:1.2;letter-spacing:-.005em;
+  }
+  .diff p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.55}
+
+  /* ============ ELIGE TU BRASIL ============ */
+  .elige{
+    background:var(--green);color:var(--cream);
+    padding:130px 0 140px;
+    position:relative;overflow:hidden;
+  }
+  .elige::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 100% 0%, rgba(232,130,26,.10), transparent 60%),
+      radial-gradient(50% 60% at 0% 100%, rgba(232,130,26,.06), transparent 70%);
+  }
+  .elige-head{text-align:center;max-width:760px;margin:0 auto 80px;position:relative}
+  .elige-head .eye-mono{color:var(--orange)}
+  .elige-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(40px,5vw,72px);letter-spacing:-.02em;line-height:1.02;
+    margin:0 0 20px;color:var(--cream);
+  }
+  .elige-head h2 em{font-style:italic;color:rgba(245,240,232,.7);font-weight:400}
+  .elige-head .underline{
+    width:60px;height:2px;background:var(--orange);margin:24px auto 0;
+  }
+  .elige-head p{font-size:17px;color:rgba(245,240,232,.75);margin:18px 0 0;line-height:1.55}
+  .routes{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    position:relative;
+  }
+  @media (max-width:1000px){.routes{grid-template-columns:1fr;max-width:480px;margin:0 auto}}
+
+  .route{
+    background:var(--green-2);
+    border-radius:20px;overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:.22s;
+    border:1px solid var(--green-line);
+  }
+  .route:hover{transform:translateY(-6px);border-color:rgba(232,130,26,.4)}
+  .route-img{
+    position:relative;aspect-ratio:4/4.6;overflow:hidden;
+    background:var(--green-3);
+  }
+  .route-img .ph-img{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    transition:transform 1.6s ease;
+  }
+  .route:hover .ph-img{transform:scale(1.04)}
+  .route-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,38,24,.1) 0%, rgba(15,38,24,.15) 50%, rgba(15,38,24,.85) 100%);
+  }
+  .route-tags{
+    position:absolute;top:18px;left:18px;right:18px;z-index:1;
+    display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+  }
+  .tag-aud{
+    background:rgba(15,38,24,.5);backdrop-filter:blur(10px);
+    color:var(--cream);
+    border:1px solid rgba(245,240,232,.24);
+    border-radius:999px;padding:8px 14px;
+    font-size:12px;font-weight:500;
+  }
+  .tag-date{
+    background:rgba(43,84,64,.85);backdrop-filter:blur(10px);
+    color:var(--cream);
+    border:1px solid rgba(245,240,232,.18);
+    border-radius:12px;padding:8px 14px;
+    text-align:center;font-family:"Playfair Display",serif;
+    white-space:nowrap;flex:none;min-width:96px;
+  }
+  .tag-date .d{font-size:18px;font-weight:600;line-height:1;font-style:italic;display:block;white-space:nowrap}
+  .tag-date .y{
+    font-family:"JetBrains Mono",monospace;
+    font-size:9px;letter-spacing:.16em;
+    color:rgba(245,240,232,.7);margin-top:4px;font-style:normal;
+    white-space:nowrap;
+  }
+  .tag-aud{white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  .route-text{
+    position:absolute;left:24px;right:24px;bottom:22px;z-index:1;
+  }
+  .route-text .bar{width:34px;height:2px;background:var(--orange);margin-bottom:18px}
+  .route-text h3{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:30px;color:var(--cream);margin:0 0 8px;line-height:1.05;letter-spacing:-.01em;
+  }
+  .route-text .sub{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:400;
+    font-size:17px;color:rgba(245,240,232,.85);margin:0 0 14px;
+  }
+  .route-pill{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(15,38,24,.5);backdrop-filter:blur(8px);
+    color:var(--cream);
+    border:1px solid var(--orange);
+    border-radius:999px;padding:7px 14px;
+    font-size:12px;font-weight:500;
+    font-family:"Nunito",sans-serif;
+  }
+  .route-pill::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange)}
+
+  .route-foot{
+    background:var(--cream);color:var(--green);
+    padding:24px 26px 22px;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .route-price{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .route-price .p{
+    font-family:"Playfair Display",serif;font-weight:600;
+    font-size:30px;color:var(--green);letter-spacing:-.01em;
+  }
+  .route-price .meta{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .route-arrival{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:400;
+    font-size:14.5px;color:var(--ink-mute);margin:0;
+  }
+  .route-buttons{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+
+  .elige-cta{
+    margin-top:64px;text-align:center;position:relative;
+  }
+  .btn-green-lg{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--green-2);color:var(--cream);
+    border:1px solid var(--orange);
+    padding:18px 32px;border-radius:999px;
+    font-family:"Nunito",sans-serif;
+    font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    transition:.22s;
+  }
+  .btn-green-lg:hover{background:var(--orange);color:var(--green-3);border-color:var(--orange);transform:translateY(-2px)}
+  .btn-green{
+    background:var(--green);color:var(--cream);
+    border:1px solid var(--orange);
+    border-radius:999px;padding:13px 18px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    transition:.18s;cursor:pointer;
+  }
+  .btn-green:hover{background:var(--green-2)}
+  .btn-outline{
+    background:transparent;color:var(--green);
+    border:1px solid var(--hair-strong);
+    border-radius:999px;padding:13px 18px;
+    font-size:13px;font-weight:500;
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    transition:.18s;cursor:pointer;
+  }
+  .btn-outline:hover{border-color:var(--green);background:var(--cream-2)}
+
+  /* ============ TESTIMONIO ============ */
+  .testi{
+    background:var(--cream);
+    padding:140px 0;
+  }
+  .testi-grid{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center;
+  }
+  @media (max-width:900px){.testi-grid{grid-template-columns:1fr;gap:48px}}
+  .testi-eye{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:32px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .testi-eye .l{width:28px;height:1px;background:var(--orange);opacity:.7}
+  .testi q{
+    quotes:none;display:block;
+    font-family:"Playfair Display",serif;
+    font-style:italic;font-weight:500;
+    font-size:clamp(24px,2.5vw,34px);
+    line-height:1.3;color:var(--green);
+    letter-spacing:-.005em;margin:0 0 36px;
+  }
+  .testi q::before{content:"\201C"}
+  .testi q::after{content:"\201D"}
+  .testi-by{
+    border-top:1px solid var(--hair-strong);padding-top:22px;
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .testi-by .who{
+    font-family:"Playfair Display",serif;font-weight:600;font-size:18px;color:var(--green);
+  }
+  .testi-by .place{
+    font-size:13.5px;color:var(--ink-soft);
+  }
+  .testi-by .tag{
+    margin-top:8px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--orange);
+  }
+  .testi-img{
+    position:relative;aspect-ratio:4/3.2;border-radius:18px;overflow:hidden;
+    box-shadow:0 30px 80px -30px rgba(15,38,24,.5);
+  }
+  .testi-img .img{
+    position:absolute;inset:0;
+    background:url("assets/testimonio-familia.jpg") center 30%/cover;
+  }
+  .testi-stamp{
+    position:absolute;top:18px;left:18px;
+    background:rgba(15,38,24,.55);backdrop-filter:blur(10px);
+    color:var(--cream);
+    border:1px solid rgba(245,240,232,.22);
+    border-radius:999px;padding:8px 14px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  }
+
+  /* ============ OPERADORES ============ */
+  .ops{
+    background:var(--cream-2);
+    padding:130px 0;
+    border-top:1px solid var(--hair);
+  }
+  .ops-head{text-align:center;max-width:780px;margin:0 auto 72px}
+  .ops-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(34px,4vw,52px);letter-spacing:-.015em;line-height:1.1;
+    margin:0 0 18px;color:var(--green);
+  }
+  .ops-head h2 em{font-style:italic;color:var(--ink-mute);font-weight:400}
+  .ops-head p{font-size:16.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+
+  .ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:900px){.ops-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .op{
+    background:var(--cream);
+    border-radius:18px;overflow:hidden;
+    border:1px solid var(--hair);
+    transition:.22s;display:flex;flex-direction:column;
+  }
+  .op:hover{transform:translateY(-4px);border-color:var(--orange)}
+  .op-img{
+    aspect-ratio:5/3.4;background:var(--green-soft);position:relative;overflow:hidden;
+  }
+  .op-img .img{position:absolute;inset:0;background-size:cover;background-position:center}
+  .op-img.brand{
+    background:var(--orange);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .op-img.brand .mark{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:600;
+    font-size:72px;color:var(--cream);letter-spacing:-.02em;
+  }
+  .op-body{padding:26px 28px 30px}
+  .op h3{
+    font-family:"Playfair Display",serif;font-weight:600;
+    font-size:24px;color:var(--green);margin:0 0 6px;letter-spacing:-.005em;
+  }
+  .op-role{
+    color:var(--orange);font-size:13.5px;font-weight:600;margin:0 0 18px;
+  }
+  .op-meta{
+    color:var(--ink-soft);font-size:14px;margin:0 0 16px;
+  }
+  .op-rate{
+    display:flex;align-items:center;gap:10px;
+    color:var(--ink-soft);font-size:13.5px;
+    border-top:1px solid var(--hair);padding-top:16px;
+  }
+  .op-rate .b{
+    width:22px;height:22px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--cream);font-size:12px;font-weight:600;flex:none;
+  }
+  .op-rate .b.g{background:#4285F4}
+  .op-rate .b.t{background:#00AA6C}
+  .op-rate b{color:var(--green);font-weight:600}
+
+  /* ============ CTA FINAL ============ */
+  .cta-final{
+    position:relative;color:var(--cream);
+    padding:160px 0 170px;
+    overflow:hidden;isolation:isolate;text-align:center;
+  }
+  .cta-final::before{
+    content:"";position:absolute;inset:0;z-index:-2;
+    background:
+      linear-gradient(180deg, rgba(15,38,24,.65) 0%, rgba(15,38,24,.78) 100%),
+      url("https://picsum.photos/seed/spoart-cta-selva/2400/1400") center/cover;
+  }
+  .cta-final h2{
+    font-family:"Playfair Display",serif;font-weight:500;font-style:italic;
+    font-size:clamp(40px,6vw,84px);letter-spacing:-.02em;line-height:1.05;
+    margin:0 0 26px;
+  }
+  .cta-final p{
+    font-size:18px;color:rgba(245,240,232,.85);
+    max-width:48ch;margin:0 auto 44px;line-height:1.55;
+  }
+  .cta-final .response{
+    margin-top:24px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(245,240,232,.6);
+  }
+  .cta-final .response .pip{
+    display:inline-block;width:6px;height:6px;border-radius:50%;
+    background:var(--orange);margin-right:10px;vertical-align:middle;
+    animation:pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* ============ FOOTER ============ */
+  .foot{
+    background:var(--green-3);color:rgba(245,240,232,.7);
+    padding:80px 0 36px;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:64px;
+    padding-bottom:48px;border-bottom:1px solid rgba(245,240,232,.10);
+  }
+  @media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:36px}}
+  .foot .logo{margin-bottom:18px;font-size:26px}
+  .foot p.desc{
+    font-size:14px;line-height:1.6;color:rgba(245,240,232,.66);
+    max-width:42ch;margin:0 0 24px;
+  }
+  .foot .contact{
+    display:flex;flex-direction:column;gap:10px;
+    font-size:14px;
+  }
+  .foot .contact a{
+    display:inline-flex;align-items:center;gap:10px;
+    color:rgba(245,240,232,.82);transition:.18s;
+  }
+  .foot .contact a:hover{color:var(--orange)}
+  .foot .contact .ic{
+    width:18px;height:18px;color:var(--orange);
+  }
+  .foot h4{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(245,240,232,.5);
+    margin:0 0 18px;font-weight:500;
+  }
+  .foot ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .foot ul a{font-size:14px;color:rgba(245,240,232,.78);transition:.18s}
+  .foot ul a:hover{color:var(--orange)}
+  .badges{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    margin-top:6px;
+  }
+  .badge{
+    background:var(--cream);border-radius:10px;
+    padding:14px 16px;
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:5/3;overflow:hidden;
+  }
+  .badge img{
+    max-width:100%;max-height:100%;width:auto;height:auto;
+    object-fit:contain;display:block;
+  }
+  .foot-bottom{
+    padding-top:30px;display:flex;justify-content:space-between;align-items:center;gap:18px;
+    font-size:12px;color:rgba(245,240,232,.5);flex-wrap:wrap;
+  }
+  .foot-bottom .legal{display:flex;gap:24px}
+  .foot-bottom .legal a{color:rgba(245,240,232,.55);transition:.18s}
+  .foot-bottom .legal a:hover{color:var(--orange)}
+  .foot-bottom .mark{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+
+  /* ============ WHATSAPP ============ */
+  .whats{
+    position:fixed;right:28px;bottom:28px;z-index:80;
+    width:62px;height:62px;border-radius:50%;
+    background:var(--whats);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.4), 0 4px 10px rgba(0,0,0,.18);
+    transition:.22s;
+  }
+  .whats:hover{transform:scale(1.06)}
+  .whats svg{width:32px;height:32px}
+  .whats::before{
+    content:"";position:absolute;inset:-6px;border-radius:50%;
+    background:var(--whats);opacity:.32;z-index:-1;
+    animation:whatsPulse 2.2s ease-out infinite;
+  }
+  @keyframes whatsPulse{0%{transform:scale(1);opacity:.32}100%{transform:scale(1.4);opacity:0}}
+  @media (max-width:600px){
+    .whats{right:18px;bottom:18px;width:56px;height:56px}
+    .whats svg{width:28px;height:28px}
+  }
+
+  /* utility */
+  .arr{display:inline-block;transition:transform .22s}
+  .btn-green:hover .arr{transform:translateX(3px)}
+
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a class="logo" href="#" aria-label="SPOART·BRASIL">
+      SPOART <span class="dot" aria-hidden="true"></span> BRASIL
+    </a>
+    <div class="nav-links">
+      <a href="#spoart">Experiencias</a>
+      <a href="Spoart Brasil - Salidas.html">Salidas</a>
+      <a href="#testimonio">Nosotros</a>
+    </div>
+    <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      <span class="line">Brasil no se visita.</span>
+      <span class="line">Se vive<span class="accent">.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Viajes en grupo a Brasil para personas que comparten tu forma de ver el mundo. Familias, amigos, tribus que se encuentran entre dunas, selva y cultura.
+    </p>
+    <div class="hero-cta-row">
+      <a class="btn-cta lg" href="#">
+        Encuentra tu Brasil
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="arrow"></span>
+  </div>
+</header>
+
+<!-- ====== SP · O · ART ====== -->
+<section class="spoart" id="spoart" data-screen-label="SPOART">
+  <div class="wrap">
+    <div class="spoart-head">
+      <div class="eye-mono"><span class="l"></span> El método <span class="l"></span></div>
+      <h2>Tres dimensiones <em>de vivir Brasil.</em></h2>
+      <p>Dentro de SPOART viven tres palabras. Es la manera en la que entendemos un viaje.</p>
+    </div>
+
+    <div class="spoart-grid">
+      <div class="spoart-col">
+        <div class="spoart-letter">SPORT</div>
+        <span class="spoart-word">N.º 01</span>
+        <p>Movimiento. Aventura. Naturaleza viva debajo de los pies.</p>
+      </div>
+      <div class="spoart-col">
+        <div class="spoart-letter"><span class="lo">SPA</span></div>
+        <span class="spoart-word">N.º 02</span>
+        <p>Cuidado. Presencia. Del cuerpo, del entorno, de lo que nos rodea.</p>
+      </div>
+      <div class="spoart-col">
+        <div class="spoart-letter">ART</div>
+        <span class="spoart-word">N.º 03</span>
+        <p>Cultura. Comunidades. Todo lo que Brasil es capaz de crear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIFERENCIADORES ====== -->
+<section class="diffs" data-screen-label="Diferenciadores">
+  <div class="wrap">
+    <div class="diffs-head">
+      <h2>Lo que nos hace <em>diferentes.</em></h2>
+      <p>No vendemos paquetes. Diseñamos viajes con criterio editorial, anfitriones locales y operación directa en Brasil. Cada decisión —cada cama, cada guía, cada hora— está pensada.</p>
+    </div>
+
+    <div class="diffs-grid">
+      <div class="diff">
+        <span class="diff-num">N.º 01</span>
+        <span class="diff-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-7.5-7-13a7 7 0 0114 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="9" r="2.6"/></svg>
+        </span>
+        <h3>Anfitriones locales, siempre</h3>
+        <p>Ninguna experiencia sin un guía de la región. Brasil se cuenta desde dentro, nunca desde fuera.</p>
+      </div>
+      <div class="diff">
+        <span class="diff-num">N.º 02</span>
+        <span class="diff-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h3>Operación directa en Brasil</h3>
+        <p>Cadastur registrado. Sin intermediarios. Lo que pagas llega a quien lo trabaja.</p>
+      </div>
+      <div class="diff">
+        <span class="diff-num">N.º 03</span>
+        <span class="diff-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.4"/><path d="M2 21v-1.4A4.6 4.6 0 016.6 15h4.8A4.6 4.6 0 0116 19.6V21"/><circle cx="17" cy="8" r="2.6"/><path d="M22 19v-.6a3.4 3.4 0 00-3.4-3.4H17"/></svg>
+        </span>
+        <h3>Tu grupo te está esperando</h3>
+        <p>Matching social entre viajeros afines. Llegas solo, te encuentras con tu tribu.</p>
+      </div>
+      <div class="diff">
+        <span class="diff-num">N.º 04</span>
+        <span class="diff-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+        </span>
+        <h3>Impacto real en comunidades</h3>
+        <p>Cada viaje contribuye al sustento de familias y biomas brasileños. Sin marketing, con cuentas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ELIGE TU BRASIL ====== -->
+<section class="elige" id="elige" data-screen-label="Elige tu Brasil">
+  <div class="wrap">
+    <div class="elige-head">
+      <div class="eye-mono"><span class="l" style="background:var(--orange)"></span> Salidas 2026 <span class="l" style="background:var(--orange)"></span></div>
+      <h2>Elige tu Brasil<em>.</em></h2>
+      <p>Tres rutas. Tres maneras de entrar a un país inabarcable. Plazas limitadas, fechas cerradas, todo incluido.</p>
+      <div class="underline" aria-hidden="true"></div>
+    </div>
+
+    <div class="routes">
+
+      <!-- Ruta 1 — 26 Jun Familias -->
+      <article class="route">
+        <div class="route-img">
+          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/familia-lagoa.jpg')"></div>
+          <div class="route-tags">
+            <span class="tag-aud">Familias · adolescentes 12+</span>
+            <span class="tag-date"><span class="d">26 Jun</span><span class="y">16 días</span></span>
+          </div>
+          <div class="route-text">
+            <div class="bar"></div>
+            <h3>Ruta Emociones<br/>Mar y Montaña</h3>
+            <p class="sub">Cinco escenarios, un solo viaje.</p>
+            <span class="route-pill">¿Te atreves con el São João?</span>
+          </div>
+        </div>
+        <div class="route-foot">
+          <div class="route-price">
+            <span class="p">2.960€</span>
+            <span class="meta">Pensión completa</span>
+          </div>
+          <p class="route-arrival">Llegas a Fortaleza, sales de Fortaleza.</p>
+          <div class="route-buttons">
+            <a class="btn-green" href="Spoart Brasil - Salidas.html">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" href="#">¿Es para ti?</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ruta 2 — 13 Nov Desafío Delta -->
+      <article class="route">
+        <div class="route-img">
+          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/desafio-delta-corredores.jpg')"></div>
+          <div class="route-tags">
+            <span class="tag-aud">Desafío · Delta Parnaíba</span>
+            <span class="tag-date"><span class="d">13 Nov</span><span class="y">12 días</span></span>
+          </div>
+          <div class="route-text">
+            <div class="bar"></div>
+            <h3>Ruta Emociones<br/>Desafío Delta</h3>
+            <p class="sub">Correr el Delta para transformarlo.</p>
+            <span class="route-pill">Inscripciones próximamente</span>
+          </div>
+        </div>
+        <div class="route-foot">
+          <div class="route-price">
+            <span class="p">1.800€</span>
+            <span class="meta">Pensión completa</span>
+          </div>
+          <p class="route-arrival">Llegas a Fortaleza, sales de Fortaleza.</p>
+          <div class="route-buttons">
+            <a class="btn-green" href="Spoart Brasil - Salidas.html">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" href="#">¿Es para ti?</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ruta 3 — 19 Nov Potiguara -->
+      <article class="route">
+        <div class="route-img">
+          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/potiguara-mangue.jpg')"></div>
+          <div class="route-tags">
+            <span class="tag-aud">Edición especial · Sertões Kitesurf</span>
+            <span class="tag-date"><span class="d">19 Nov</span><span class="y">12 días</span></span>
+          </div>
+          <div class="route-text">
+            <div class="bar"></div>
+            <h3>Ruta Potiguara</h3>
+            <p class="sub">De la reserva indígena al viento del Sertão.</p>
+            <span class="route-pill">12 plazas abiertas</span>
+          </div>
+        </div>
+        <div class="route-foot">
+          <div class="route-price">
+            <span class="p">1.800€</span>
+            <span class="meta">Pensión completa</span>
+          </div>
+          <p class="route-arrival">Llegas a Recife, sales de Fortaleza.</p>
+          <div class="route-buttons">
+            <a class="btn-green" href="Spoart Brasil - Salidas.html">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" href="#">¿Es para ti?</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="elige-cta">
+      <a class="btn-green-lg" href="Spoart Brasil - Salidas.html">
+        Ver todas las salidas
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="testi" id="testimonio" data-screen-label="Testimonio">
+  <div class="wrap">
+    <div class="testi-grid">
+      <div>
+        <div class="testi-eye"><span class="l"></span> El viaje que lo empezó todo</div>
+        <q>Paisajes que no sabíamos que existían. Un equipo que lo tiene todo pensado sin que se note. Y las comunidades de la costa — su forma de recibirnos, de hacernos sentir en casa a miles de kilómetros de la nuestra.</q>
+        <div class="testi-by">
+          <span class="who">— Familia Underwood Benito</span>
+          <span class="place">Delta do Parnaíba · viajaron con SPOART en 2025</span>
+          <span class="tag">El viaje que inspiró Spoart Brasil</span>
+        </div>
+      </div>
+      <div class="testi-img">
+        <div class="img" aria-hidden="true"></div>
+        <span class="testi-stamp">Delta do Parnaíba · PI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== OPERADORES LOCALES ====== -->
+<section class="ops" data-screen-label="Operadores">
+  <div class="wrap">
+    <div class="ops-head">
+      <div class="eye-mono"><span class="l"></span> Operadores locales <span class="l"></span></div>
+      <h2>Viajamos con quienes <em>conocen el terreno.</em></h2>
+      <p>SPOART es una curaduría. Ponemos a tu alcance operadores locales elegidos con criterio, con historia y con cara.</p>
+    </div>
+
+    <div class="ops-grid">
+      <article class="op">
+        <div class="op-img">
+          <div class="img" style="background-image:url('assets/operadores/afrotur.jpg');background-position:center 30%"></div>
+        </div>
+        <div class="op-body">
+          <h3>Afrotur</h3>
+          <p class="op-role">Guiado por Nego</p>
+          <p class="op-meta">Barra de Mamanguape, Paraíba</p>
+          <div class="op-rate">
+            <span class="b g">G</span>
+            <span><b>5,0</b> · 67 reseñas en Google</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="op">
+        <div class="op-img">
+          <div class="img" style="background-image:url('assets/operadores/ibate.jpg');background-position:center 35%"></div>
+        </div>
+        <div class="op-body">
+          <h3>Ibaté Camping</h3>
+          <p class="op-role">Colaborador de la Ruta Potiguara</p>
+          <p class="op-meta">Turismo en reserva indígena · Paraíba</p>
+          <div class="op-rate">
+            <span class="b g">G</span>
+            <span><b>4,8</b> · 296 reseñas en Google</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="op">
+        <div class="op-img">
+          <div class="img" style="background-image:url('assets/operadores/vivala.jpg');background-position:center 30%"></div>
+        </div>
+        <div class="op-body">
+          <h3>Vivalá Turismo Sustentável</h3>
+          <p class="op-role">Operador certificado</p>
+          <p class="op-meta">Brasil · Premio ONU Medio Ambiente</p>
+          <div class="op-rate">
+            <span class="b t">T</span>
+            <span><b>4,9</b> · TripAdvisor · +3.000 viajeros</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="cta-final" id="cta-final" data-screen-label="CTA Final">
+  <div class="wrap">
+    <h2>Tu tribu brasileña te está esperando.</h2>
+    <p>Plazas limitadas por grupo. Diseñamos cada experiencia para que sea única e irrepetible.</p>
+    <a class="btn-cta lg" href="#" style="font-size:16px;padding:20px 36px">
+      Encuentra tu experiencia
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <div class="response"><span class="pip"></span> Respuesta en menos de 24 h</div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#">SPOART <span class="dot" aria-hidden="true"></span> BRASIL</a>
+        <p class="desc">Agencia de viajes experienciales a Brasil. Operamos con Cadastur — registro oficial del Ministerio de Turismo de Brasil.</p>
+        <div class="contact">
+          <a href="mailto:info@spoartbrasil.com">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            info@spoartbrasil.com
+          </a>
+          <a href="#">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @spoartbrasil
+          </a>
+          <a href="#">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-1 4 8.5 8.5 0 01-7.5 4.5 8.4 8.4 0 01-4-1L3 21l1.7-5.4a8.5 8.5 0 1116.3-4.1z"/></svg>
+            WhatsApp directo
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#spoart">Experiencias</a></li>
+          <li><a href="Spoart Brasil - Salidas.html">Salidas 2026</a></li>
+          <li><a href="#testimonio">Nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Prensa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Certificaciones</h4>
+        <div class="badges">
+          <div class="badge">
+            <img src="assets/logo-brasil.jpg" alt="Marca Brasil — Embratur" />
+          </div>
+          <div class="badge">
+            <img src="assets/logo-cadastur.jpg" alt="Cadastur — Ministério do Turismo" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span class="mark">© 2026 · SPOART · BRASIL</span>
+      <div class="legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== WHATSAPP FLOATING ====== -->
+<a class="whats" href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
+  </svg>
+</a>
+
+</body>
+</html>

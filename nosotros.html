@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nosotros · SPOART·BRASIL — Sarah Lages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1a3a2a;
+    --green-2:#13301f;
+    --green-3:#0f2618;
+    --green-soft:#2b5440;
+    --green-line:rgba(245,240,232,.16);
+    --cream:#f5f0e8;
+    --cream-2:#ece5d8;
+    --cream-3:#e3dac8;
+    --orange:#e8821a;
+    --orange-hi:#f1932f;
+    --ink:#1a3a2a;
+    --ink-soft:rgba(26,58,42,.72);
+    --ink-mute:rgba(26,58,42,.55);
+    --hair:rgba(26,58,42,.12);
+    --hair-strong:rgba(26,58,42,.22);
+    --whats:#25D366;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Nunito",system-ui,sans-serif;
+    background:var(--cream);color:var(--ink);
+    font-size:16px;line-height:1.6;font-weight:400;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  img{display:block;max-width:100%}
+
+  .serif{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.012em}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .narrow{max-width:880px;margin:0 auto;padding:0 40px}
+  @media (max-width:760px){.wrap,.narrow{padding:0 22px}}
+
+  /* ============ NAV (same as home) ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--green);color:var(--cream);
+    border-bottom:1px solid var(--green-line);
+  }
+  .nav-inner{
+    max-width:1440px;margin:0 auto;
+    padding:18px 40px;
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;
+  }
+  .logo{
+    font-family:"Playfair Display",serif;
+    font-size:24px;font-weight:600;letter-spacing:.04em;
+    display:inline-flex;align-items:center;gap:10px;color:var(--cream);
+  }
+  .logo .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--orange);
+    box-shadow:0 0 0 4px rgba(232,130,26,.18);
+  }
+  .nav-links{
+    justify-self:center;
+    display:flex;gap:42px;
+    font-family:"Nunito",sans-serif;
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(245,240,232,.78);
+  }
+  .nav-links a{transition:.18s;position:relative;padding:6px 0}
+  .nav-links a:hover,.nav-links a.is-active{color:var(--cream)}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:var(--orange);transform:scaleX(0);transform-origin:left;transition:.22s;
+  }
+  .nav-links a:hover::after,.nav-links a.is-active::after{transform:scaleX(1)}
+  .btn-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:var(--green-3);
+    padding:13px 22px;border-radius:999px;
+    font-family:"Nunito",sans-serif;
+    font-size:13px;font-weight:700;letter-spacing:.02em;
+    transition:.18s;
+  }
+  .btn-cta:hover{background:var(--orange-hi);transform:translateY(-1px)}
+  .btn-cta.lg{padding:18px 32px;font-size:15px}
+  @media (max-width:900px){.nav-inner{gap:16px}.nav-links{display:none}}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background:var(--green-3);
+    color:var(--cream);
+    overflow:hidden;isolation:isolate;
+    min-height:88vh;display:flex;align-items:flex-end;
+  }
+  .hero-img{
+    position:absolute;inset:0;z-index:-2;
+    background:url("assets/sarah-buggy.jpg") center 35%/cover no-repeat;
+  }
+  .hero-img::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(15,38,24,.35) 0%, rgba(15,38,24,.15) 30%, rgba(15,38,24,.4) 60%, rgba(15,38,24,.92) 100%);
+  }
+  .hero-side-grad{
+    position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(90deg, rgba(15,38,24,.55) 0%, transparent 45%);
+  }
+  .hero-inner{
+    position:relative;width:100%;
+    padding:60px 0 70px;
+    text-align:center;
+  }
+  .hero-eye{
+    display:inline-flex;align-items:center;gap:14px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:22px;
+  }
+  .hero-eye .l{width:28px;height:1px;background:var(--orange);opacity:.7}
+  h1.hero-title{
+    font-family:"Playfair Display",serif;
+    font-weight:500;
+    font-size:clamp(26px,3.2vw,46px);
+    line-height:1.15;letter-spacing:-.012em;
+    margin:0 auto;max-width:30ch;
+  }
+  h1.hero-title em{font-style:italic;color:rgba(245,240,232,.78);font-weight:400}
+  h1.hero-title .accent{color:var(--orange);font-style:normal;font-weight:400}
+
+  /* ============ PRESENTACIÓN ============ */
+  .intro{
+    background:var(--cream);
+    padding:130px 0 110px;
+  }
+  .intro-eye{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:28px;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .intro-eye .l{width:28px;height:1px;background:var(--orange);opacity:.7}
+  .intro h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(40px,5.2vw,76px);
+    letter-spacing:-.02em;line-height:1.0;
+    margin:0 0 56px;color:var(--green);
+  }
+  .intro h2 em{font-style:italic;color:var(--ink-mute);font-weight:400}
+  .intro h2 .dot{color:var(--orange);font-style:normal}
+  .intro-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;
+    align-items:start;
+    border-top:1px solid var(--hair-strong);padding-top:48px;
+  }
+  @media (max-width:780px){.intro-grid{grid-template-columns:1fr;gap:36px}}
+  .intro-block .num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;color:var(--orange);font-weight:500;
+    margin-bottom:18px;display:block;
+  }
+  .intro-block p{
+    font-size:19px;line-height:1.55;color:var(--ink);
+    margin:0;
+  }
+  .intro-block p .em{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
+    color:var(--green);font-size:1.06em;letter-spacing:-.005em;
+  }
+
+  /* ============ POR QUÉ BRASIL ============ */
+  .porque{
+    background:var(--cream-2);
+    padding:140px 0;border-top:1px solid var(--hair);
+  }
+  .porque-head{
+    display:grid;grid-template-columns:1fr 1.4fr;gap:64px;
+    align-items:end;margin-bottom:64px;
+  }
+  @media (max-width:860px){.porque-head{grid-template-columns:1fr;gap:24px}}
+  .porque-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(36px,4.4vw,60px);letter-spacing:-.015em;line-height:1.05;
+    margin:0;color:var(--green);
+  }
+  .porque-head h2 em{font-style:italic;color:var(--ink-mute);font-weight:400}
+  .porque-head h2 .dot{color:var(--orange);font-style:normal}
+  .porque-head .lede{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:400;
+    font-size:22px;color:var(--ink-soft);margin:0;line-height:1.4;
+    max-width:42ch;
+  }
+  .porque-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--hair-strong);
+    border-top:1px solid var(--hair-strong);
+    border-bottom:1px solid var(--hair-strong);
+  }
+  @media (max-width:860px){.porque-grid{grid-template-columns:1fr}}
+  .arg{
+    background:var(--cream-2);padding:48px 36px;
+    display:flex;flex-direction:column;gap:18px;
+    position:relative;
+  }
+  .arg-num{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
+    font-size:48px;color:var(--orange);letter-spacing:-.02em;
+    line-height:1;margin-bottom:6px;
+  }
+  .arg p{
+    font-size:17px;line-height:1.55;color:var(--ink);margin:0;
+  }
+  .arg p b{
+    font-family:"Playfair Display",serif;font-weight:600;font-style:italic;
+    color:var(--green);
+  }
+
+  /* ============ FOTO HORIZONTAL (full bleed) ============ */
+  .photo-band{
+    background:var(--cream);
+    padding:0;margin:0;
+  }
+  .photo{
+    position:relative;width:100%;margin:0;
+    overflow:hidden;background:var(--green-3);
+    display:block;
+  }
+  .photo img{
+    width:100%;height:auto;display:block;
+  }
+  .photo .caption{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:48px 40px 40px;
+    background:linear-gradient(180deg, transparent 0%, rgba(15,38,24,.85) 100%);
+    color:var(--cream);text-align:center;
+  }
+  .photo .caption q{
+    quotes:none;
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
+    font-size:clamp(20px,2.4vw,32px);
+    line-height:1.2;letter-spacing:-.01em;
+    color:var(--cream);display:block;max-width:26ch;margin:0 auto;
+  }
+  .photo .caption q::before{content:"\201C"}
+  .photo .caption q::after{content:"\201D"}
+  @media (max-width:680px){
+    .photo .caption{padding:32px 22px 22px}
+  }
+
+  /* ============ CREDENCIALES ============ */
+  .creds{
+    background:var(--green);color:var(--cream);
+    padding:140px 0;position:relative;overflow:hidden;
+  }
+  .creds::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 100% 0%, rgba(232,130,26,.10), transparent 60%),
+      radial-gradient(50% 60% at 0% 100%, rgba(232,130,26,.06), transparent 70%);
+  }
+  .creds-head{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:72px}
+  @media (max-width:860px){.creds-head{grid-template-columns:1fr;gap:24px}}
+  .creds-head h2{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:clamp(36px,4.4vw,62px);letter-spacing:-.02em;line-height:1.02;
+    margin:0;color:var(--cream);max-width:14ch;
+  }
+  .creds-head h2 em{font-style:italic;color:rgba(245,240,232,.7);font-weight:400}
+  .creds-head h2 .dot{color:var(--orange);font-style:normal}
+  .creds-head .sub{
+    font-size:16px;color:rgba(245,240,232,.7);max-width:42ch;margin:0;line-height:1.55;
+  }
+  .creds-grid{
+    position:relative;
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid rgba(245,240,232,.16);
+  }
+  @media (max-width:780px){.creds-grid{grid-template-columns:1fr}}
+  .cred{
+    display:grid;grid-template-columns:auto 1fr;gap:24px;
+    padding:34px 0;
+    border-bottom:1px solid rgba(245,240,232,.12);
+    align-items:start;
+  }
+  .creds-grid > .cred:nth-child(odd){padding-right:36px;border-right:1px solid rgba(245,240,232,.12)}
+  .creds-grid > .cred:nth-child(even){padding-left:36px}
+  @media (max-width:780px){
+    .creds-grid > .cred:nth-child(odd){padding-right:0;border-right:0}
+    .creds-grid > .cred:nth-child(even){padding-left:0}
+  }
+  .cred-num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;
+    color:var(--orange);
+    margin-top:6px;
+  }
+  .cred h3{
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:22px;color:var(--cream);margin:0 0 8px;line-height:1.25;letter-spacing:-.005em;
+  }
+  .cred p{
+    color:rgba(245,240,232,.7);font-size:14.5px;line-height:1.55;margin:0;
+  }
+  .cred p em{color:rgba(245,240,232,.85);font-style:italic}
+
+  /* ============ CTA FINAL ============ */
+  .cta-final{
+    background:var(--green-2);color:var(--cream);
+    padding:140px 0;position:relative;overflow:hidden;text-align:center;
+    border-top:1px solid rgba(245,240,232,.10);
+  }
+  .cta-final::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(50% 70% at 50% 0%, rgba(232,130,26,.10), transparent 70%);
+  }
+  .cta-final h2{
+    position:relative;
+    font-family:"Playfair Display",serif;font-weight:500;font-style:italic;
+    font-size:clamp(34px,4.8vw,60px);letter-spacing:-.015em;line-height:1.12;
+    margin:0 auto 48px;max-width:22ch;color:var(--cream);
+  }
+  .cta-final h2 .accent{color:var(--orange);font-style:normal;font-weight:400}
+  .btn-whats{
+    position:relative;
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--orange);color:var(--green-3);
+    padding:20px 34px;border-radius:999px;
+    font-family:"Nunito",sans-serif;font-size:16px;font-weight:700;letter-spacing:.01em;
+    transition:.22s;white-space:nowrap;
+    box-shadow:0 18px 40px -18px rgba(232,130,26,.7);
+  }
+  .btn-whats:hover{background:var(--orange-hi);transform:translateY(-2px);box-shadow:0 24px 48px -18px rgba(232,130,26,.8)}
+  .btn-whats .ic{
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .cta-final .small{
+    position:relative;
+    margin-top:24px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(245,240,232,.5);
+  }
+  .cta-final .small .pip{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:middle;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+  /* ============ FOOTER (compact) ============ */
+  .foot{
+    background:var(--green-3);color:rgba(245,240,232,.6);
+    padding:48px 0;text-align:center;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .foot a{color:rgba(245,240,232,.8);transition:.18s}
+  .foot a:hover{color:var(--orange)}
+  .foot .row{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .foot .sep{opacity:.4}
+
+  /* ============ WHATSAPP FLOATING ============ */
+  .whats{
+    position:fixed;right:28px;bottom:28px;z-index:80;
+    width:62px;height:62px;border-radius:50%;
+    background:var(--whats);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.4), 0 4px 10px rgba(0,0,0,.18);
+    transition:.22s;
+  }
+  .whats:hover{transform:scale(1.06)}
+  .whats svg{width:32px;height:32px}
+  .whats::before{
+    content:"";position:absolute;inset:-6px;border-radius:50%;
+    background:var(--whats);opacity:.32;z-index:-1;
+    animation:whatsPulse 2.2s ease-out infinite;
+  }
+  @keyframes whatsPulse{0%{transform:scale(1);opacity:.32}100%{transform:scale(1.4);opacity:0}}
+  @media (max-width:600px){
+    .whats{right:18px;bottom:18px;width:56px;height:56px}
+    .whats svg{width:28px;height:28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a class="logo" href="Spoart Brasil - Home.html" aria-label="SPOART·BRASIL">
+      SPOART <span class="dot" aria-hidden="true"></span> BRASIL
+    </a>
+    <div class="nav-links">
+      <a href="Spoart Brasil - Home.html#spoart">Experiencias</a>
+      <a href="Spoart Brasil - Salidas.html">Salidas</a>
+      <a href="#" class="is-active">Nosotros</a>
+    </div>
+    <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-img" aria-hidden="true"></div>
+  <div class="hero-side-grad" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-eye">
+      <span class="l"></span>
+      Nosotros · Sarah Lages
+    </div>
+    <h1 class="hero-title">
+      Brasileña en Barcelona<span class="accent">.</span> <em>Veinte años siendo puente entre dos mundos.</em>
+    </h1>
+  </div>
+</header>
+
+<!-- ====== PRESENTACIÓN ====== -->
+<section class="intro" data-screen-label="Presentación">
+  <div class="narrow">
+    <div class="intro-eye"><span class="l"></span> Quién está detrás</div>
+    <h2>Soy Sarah Lages<span class="dot">.</span></h2>
+    <div class="intro-grid">
+      <div class="intro-block">
+        <span class="num">N.º 01</span>
+        <p>Brasileña. Llevo más de veinte años en Barcelona haciendo <span class="em">exactamente lo mismo que hago ahora</span> — recibir gente, organizar viajes, hacer de puente entre Brasil y Europa, contar mi país a quien quería escucharlo. Sin darme cuenta de que era un negocio.</p>
+      </div>
+      <div class="intro-block">
+        <span class="num">N.º 02</span>
+        <p>Hasta que acompañé a una familia al Nordeste de Brasil. Cuando volvimos me dijeron: <span class="em">deberías dedicarte a esto.</span> No era mi convicción. Fue la suya. Así nació Spoart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== POR QUÉ BRASIL ====== -->
+<section class="porque" data-screen-label="Por qué Brasil">
+  <div class="wrap">
+    <div class="porque-head">
+      <h2>Por qué Brasil <em>necesita esto</em><span class="dot">.</span></h2>
+      <p class="lede">Brasil tiene de todo — menos un relato claro para el viajero. Spoart existe para responder esa pregunta con experiencias reales.</p>
+    </div>
+
+    <div class="porque-grid">
+      <div class="arg">
+        <span class="arg-num">i.</span>
+        <p><b>Perú tiene Machu Picchu.</b> Una imagen, una promesa, una agenda clara para cualquier viajero del mundo.</p>
+      </div>
+      <div class="arg">
+        <span class="arg-num">ii.</span>
+        <p><b>Argentina tiene la Patagonia.</b> Una postal que se vende sola y un mapa mental que todos compartimos.</p>
+      </div>
+      <div class="arg">
+        <span class="arg-num">iii.</span>
+        <p><b>Brasil sigue siendo una pregunta.</b> Carnaval y Cristo Redentor — y nada más. Nadie ha contado bien su historia. Por eso estamos aquí.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOTO HORIZONTAL ====== -->
+<section class="photo-band" data-screen-label="Foto Brasil te recibe">
+  <figure class="photo">
+    <img src="assets/sarah-abuela.jpg" alt="Sarah abrazada a una señora brasileña mayor" />
+    <figcaption class="caption">
+      <q>Brasil te recibe como a alguien que ya conocía.</q>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ====== CREDENCIALES ====== -->
+<section class="creds" data-screen-label="Credenciales">
+  <div class="wrap">
+    <div class="creds-head">
+      <h2>Por qué puedes <em>confiar</em><span class="dot">.</span></h2>
+      <p class="sub">No es solo intuición ni veinte años cruzando el Atlántico. Hay un currículum, certificaciones y proyectos detrás de cada decisión que tomamos.</p>
+    </div>
+
+    <div class="creds-grid">
+      <div class="cred">
+        <span class="cred-num">01</span>
+        <div>
+          <h3>Cadastur registrado</h3>
+          <p>Operación legal y trazable bajo el Ministério do Turismo de Brasil — el único sello oficial del país.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <span class="cred-num">02</span>
+        <div>
+          <h3>Doble nacionalidad brasileña y española</h3>
+          <p>Pasaporte, hogar y vínculos a ambos lados del Atlántico. Operación directa, sin agencias revendedoras en el medio.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <span class="cred-num">03</span>
+        <div>
+          <h3>Cofundadora de Mammaproof</h3>
+          <p>La plataforma de referencia para familias en la ciudad. Más de una década conectando familias con experiencias, espacios y servicios pensados para ellas.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <span class="cred-num">04</span>
+        <div>
+          <h3>Coautora · Lonely Planet</h3>
+          <p><em>365 Experiencias con tus hijos.</em> Una guía publicada por la editorial de viajes más leída del mundo.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <span class="cred-num">05</span>
+        <div>
+          <h3>Editora · Agència Catalana de Turisme</h3>
+          <p>Contenido editorial para el organismo oficial de turismo de Catalunya. Curaduría con criterio institucional.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <span class="cred-num">06</span>
+        <div>
+          <h3>Cofundadora · Festival Sereia</h3>
+          <p>El primer festival de cultura brasileña en Europa fundado por mujeres. Cultura como puente, no como espectáculo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="cta-final" id="cta-final" data-screen-label="CTA Final">
+  <div class="narrow">
+    <h2>Cada viaje tiene a alguien detrás que <em>lo conoce de verdad</em><span class="accent">.</span></h2>
+    <a class="btn-whats" href="#" aria-label="Escríbenos por WhatsApp">
+      <span class="ic" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
+          <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
+        </svg>
+      </span>
+      Escríbenos por WhatsApp
+    </a>
+    <div class="small"><span class="pip"></span> Respuesta en menos de 24 h</div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="row">
+    <span>© 2026 · SPOART · BRASIL</span>
+    <span class="sep">·</span>
+    <a href="mailto:info@spoartbrasil.com">info@spoartbrasil.com</a>
+    <span class="sep">·</span>
+    <span>Cadastur · Ministério do Turismo</span>
+  </div>
+</footer>
+
+<!-- ====== WHATSAPP FLOATING ====== -->
+<a class="whats" href="#" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
+  </svg>
+</a>
+
+</body>
+</html>
