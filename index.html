@@ -665,61 +665,6 @@
     .whats svg{width:28px;height:28px}
   }
 
-  /* ============ MENÚ MÓVIL (hamburguesa + overlay) ============ */
-  .nav-toggle{
-    display:none;
-    width:44px;height:44px;
-    border-radius:50%;
-    background:transparent;
-    border:1px solid rgba(245,240,232,.32);
-    align-items:center;justify-content:center;
-    cursor:pointer;padding:0;
-    transition:.18s;
-    flex-direction:column;gap:5px;
-    z-index:110;
-  }
-  .nav-toggle:hover{border-color:rgba(245,240,232,.6)}
-  .nav-toggle span{
-    display:block;width:18px;height:1.5px;
-    background:var(--cream);border-radius:2px;
-    transition:.22s;
-  }
-  .nav-toggle.open{border-color:var(--orange)}
-  .nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-  .nav-toggle.open span:nth-child(2){opacity:0}
-  .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-  .mobile-menu{
-    position:fixed;inset:0;z-index:100;
-    background:var(--green);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:32px;
-    opacity:0;visibility:hidden;
-    transition:opacity .25s ease, visibility .25s ease;
-    padding:80px 24px 40px;
-  }
-  .mobile-menu.open{opacity:1;visibility:visible}
-  .mobile-menu a{
-    font-family:"Playfair Display",serif;
-    font-size:32px;font-weight:500;
-    color:var(--cream);
-    letter-spacing:-.01em;
-    transition:.18s;
-  }
-  .mobile-menu a:hover,.mobile-menu a.is-active{color:var(--orange)}
-  .mobile-menu .btn-cta{
-    margin-top:24px;
-    font-family:"Nunito",sans-serif;
-    font-size:14px;
-    padding:16px 28px;
-  }
-  .mobile-menu .btn-cta:hover{color:var(--green-3)}
-
-  @media (max-width:900px){
-    .nav-toggle{display:flex}
-    .nav .btn-cta{display:none}
-  }
-
   /* utility */
   .arr{display:inline-block;transition:transform .22s}
   .btn-green:hover .arr{transform:translateX(3px)}
@@ -731,29 +676,17 @@
 <!-- ====== NAV ====== -->
 <nav class="nav" data-screen-label="Nav">
   <div class="nav-inner">
-    <a class="logo" href="index.html" aria-label="SPOART·BRASIL">
+    <a class="logo" href="#" aria-label="SPOART·BRASIL">
       SPOART <span class="dot" aria-hidden="true"></span> BRASIL
     </a>
     <div class="nav-links">
       <a href="#spoart">Experiencias</a>
       <a href="salidas.html">Salidas</a>
-      <a href="nosotros.html">Nosotros</a>
+      <a href="#testimonio">Nosotros</a>
     </div>
-    <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="btn-cta" href="salidas.html">Encuentra tu experiencia</a>
   </div>
 </nav>
-
-<!-- ====== MENÚ MÓVIL ====== -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="index.html">Inicio</a>
-  <a href="#spoart">Experiencias</a>
-  <a href="salidas.html">Salidas</a>
-  <a href="nosotros.html">Nosotros</a>
-  <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
-</div>
 
 <!-- ====== HERO ====== -->
 <header class="hero" data-screen-label="Hero">
@@ -767,7 +700,7 @@
       Viajes en grupo a Brasil para personas que comparten tu forma de ver el mundo. Familias, amigos, tribus que se encuentran entre dunas, selva y cultura.
     </p>
     <div class="hero-cta-row">
-      <a class="btn-cta lg" href="#">
+      <a class="btn-cta lg" href="salidas.html">
         Encuentra tu Brasil
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -859,19 +792,19 @@
     <div class="elige-head">
       <div class="eye-mono"><span class="l" style="background:var(--orange)"></span> Salidas 2026 <span class="l" style="background:var(--orange)"></span></div>
       <h2>Elige tu Brasil<em>.</em></h2>
-      <p>Tres rutas. Tres maneras de entrar a un país inabarcable. Plazas limitadas, fechas cerradas, todo incluido.</p>
+      <p>Distintas rutas, distintas maneras de entrar a un país inabarcable. Plazas limitadas y salidas puntuales.</p>
       <div class="underline" aria-hidden="true"></div>
     </div>
 
     <div class="routes">
 
-      <!-- Ruta 1 — 26 Jun Familias -->
+      <!-- Ruta 1 — 20 Ago Familias -->
       <article class="route">
         <div class="route-img">
-          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/familia-lagoa.jpg')"></div>
+          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/familia-arbol.jpg')"></div>
           <div class="route-tags">
             <span class="tag-aud">Familias · adolescentes 12+</span>
-            <span class="tag-date"><span class="d">26 Jun</span><span class="y">16 días</span></span>
+            <span class="tag-date"><span class="d">20 Ago</span><span class="y">16 días</span></span>
           </div>
           <div class="route-text">
             <div class="bar"></div>
@@ -887,8 +820,8 @@
           </div>
           <p class="route-arrival">Llegas a Fortaleza, sales de Fortaleza.</p>
           <div class="route-buttons">
-            <a class="btn-green" href="salidas.html">Ver el viaje <span class="arr">→</span></a>
-            <a class="btn-outline" href="#">¿Es para ti?</a>
+            <a class="btn-green" target="_blank" rel="noopener" href="https://vive.spoartbrasil.com/ruta-emociones-mar-montana">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">¿Es para ti?</a>
           </div>
         </div>
       </article>
@@ -915,8 +848,8 @@
           </div>
           <p class="route-arrival">Llegas a Fortaleza, sales de Fortaleza.</p>
           <div class="route-buttons">
-            <a class="btn-green" href="salidas.html">Ver el viaje <span class="arr">→</span></a>
-            <a class="btn-outline" href="#">¿Es para ti?</a>
+            <a class="btn-green" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">¿Es para ti?</a>
           </div>
         </div>
       </article>
@@ -924,7 +857,7 @@
       <!-- Ruta 3 — 19 Nov Potiguara -->
       <article class="route">
         <div class="route-img">
-          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/potiguara-mangue.jpg')"></div>
+          <div class="ph-img" style="background-image:linear-gradient(180deg, rgba(15,38,24,.15), rgba(15,38,24,.55)), url('assets/salidas/kitesurf-sunset.jpg')"></div>
           <div class="route-tags">
             <span class="tag-aud">Edición especial · Sertões Kitesurf</span>
             <span class="tag-date"><span class="d">19 Nov</span><span class="y">12 días</span></span>
@@ -943,8 +876,8 @@
           </div>
           <p class="route-arrival">Llegas a Recife, sales de Fortaleza.</p>
           <div class="route-buttons">
-            <a class="btn-green" href="salidas.html">Ver el viaje <span class="arr">→</span></a>
-            <a class="btn-outline" href="#">¿Es para ti?</a>
+            <a class="btn-green" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">Ver el viaje <span class="arr">→</span></a>
+            <a class="btn-outline" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">¿Es para ti?</a>
           </div>
         </div>
       </article>
@@ -1042,7 +975,7 @@
   <div class="wrap">
     <h2>Tu tribu brasileña te está esperando.</h2>
     <p>Plazas limitadas por grupo. Diseñamos cada experiencia para que sea única e irrepetible.</p>
-    <a class="btn-cta lg" href="#" style="font-size:16px;padding:20px 36px">
+    <a class="btn-cta lg" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil" style="font-size:16px;padding:20px 36px">
       Encuentra tu experiencia
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
@@ -1066,7 +999,7 @@
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
             @spoartbrasil
           </a>
-          <a href="#">
+          <a target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-1 4 8.5 8.5 0 01-7.5 4.5 8.4 8.4 0 01-4-1L3 21l1.7-5.4a8.5 8.5 0 1116.3-4.1z"/></svg>
             WhatsApp directo
           </a>
@@ -1076,7 +1009,7 @@
       <div>
         <h4>Explora</h4>
         <ul>
-          <li><a href="#spoart">Experiencias</a></li>
+          <li><a href="index.html#spoart">Experiencias</a></li>
           <li><a href="salidas.html">Salidas 2026</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="#">Blog</a></li>
@@ -1109,32 +1042,11 @@
 </footer>
 
 <!-- ====== WHATSAPP FLOATING ====== -->
-<a class="whats" href="#" aria-label="WhatsApp">
+<a class="whats" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
     <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
   </svg>
 </a>
-
-<script>
-(function(){
-  var toggle = document.querySelector('.nav-toggle');
-  var menu = document.getElementById('mobileMenu');
-  if(!toggle || !menu) return;
-  function setOpen(open){
-    menu.classList.toggle('open', open);
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  toggle.addEventListener('click', function(){
-    setOpen(!menu.classList.contains('open'));
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ setOpen(false); });
-  });
-})();
-</script>
 
 </body>
 </html>

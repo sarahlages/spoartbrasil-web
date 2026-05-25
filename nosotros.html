@@ -44,7 +44,7 @@
   .narrow{max-width:880px;margin:0 auto;padding:0 40px}
   @media (max-width:760px){.wrap,.narrow{padding:0 22px}}
 
-  /* ============ NAV ============ */
+  /* ============ NAV (same as home) ============ */
   .nav{
     position:sticky;top:0;z-index:50;
     background:var(--green);color:var(--cream);
@@ -84,71 +84,11 @@
     padding:13px 22px;border-radius:999px;
     font-family:"Nunito",sans-serif;
     font-size:13px;font-weight:700;letter-spacing:.02em;
-    transition:.18s;white-space:nowrap;
+    transition:.18s;
   }
   .btn-cta:hover{background:var(--orange-hi);transform:translateY(-1px)}
   .btn-cta.lg{padding:18px 32px;font-size:15px}
   @media (max-width:900px){.nav-inner{gap:16px}.nav-links{display:none}}
-  @media (max-width:560px){
-    .nav-inner{padding:14px 20px;gap:12px}
-    .logo{font-size:18px}
-    .btn-cta{padding:10px 16px;font-size:11px;letter-spacing:.04em}
-  }
-
-  /* ============ MENÚ MÓVIL (hamburguesa + overlay) ============ */
-  .nav-toggle{
-    display:none;
-    width:44px;height:44px;
-    border-radius:50%;
-    background:transparent;
-    border:1px solid rgba(245,240,232,.32);
-    align-items:center;justify-content:center;
-    cursor:pointer;padding:0;
-    transition:.18s;
-    flex-direction:column;gap:5px;
-    z-index:110;
-  }
-  .nav-toggle:hover{border-color:rgba(245,240,232,.6)}
-  .nav-toggle span{
-    display:block;width:18px;height:1.5px;
-    background:var(--cream);border-radius:2px;
-    transition:.22s;
-  }
-  .nav-toggle.open{border-color:var(--orange)}
-  .nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-  .nav-toggle.open span:nth-child(2){opacity:0}
-  .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-  .mobile-menu{
-    position:fixed;inset:0;z-index:100;
-    background:var(--green);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:32px;
-    opacity:0;visibility:hidden;
-    transition:opacity .25s ease, visibility .25s ease;
-    padding:80px 24px 40px;
-  }
-  .mobile-menu.open{opacity:1;visibility:visible}
-  .mobile-menu a{
-    font-family:"Playfair Display",serif;
-    font-size:32px;font-weight:500;
-    color:var(--cream);
-    letter-spacing:-.01em;
-    transition:.18s;
-  }
-  .mobile-menu a:hover,.mobile-menu a.is-active{color:var(--orange)}
-  .mobile-menu .btn-cta{
-    margin-top:24px;
-    font-family:"Nunito",sans-serif;
-    font-size:14px;
-    padding:16px 28px;
-  }
-  .mobile-menu .btn-cta:hover{color:var(--green-3)}
-
-  @media (max-width:900px){
-    .nav-toggle{display:flex}
-    .nav .btn-cta{display:none}
-  }
 
   /* ============ HERO ============ */
   .hero{
@@ -192,11 +132,6 @@
   }
   h1.hero-title em{font-style:italic;color:rgba(245,240,232,.78);font-weight:400}
   h1.hero-title .accent{color:var(--orange);font-style:normal;font-weight:400}
-  @media (max-width:560px){
-    .hero{min-height:70vh}
-    .hero-inner{padding:40px 0 50px}
-    h1.hero-title{font-size:22px;line-height:1.25;max-width:24ch}
-  }
 
   /* ============ PRESENTACIÓN ============ */
   .intro{
@@ -236,12 +171,6 @@
   .intro-block p .em{
     font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
     color:var(--green);font-size:1.06em;letter-spacing:-.005em;
-  }
-  @media (max-width:560px){
-    .intro{padding:70px 0 60px}
-    .intro h2{font-size:36px;margin-bottom:36px}
-    .intro-grid{padding-top:32px;gap:28px}
-    .intro-block p{font-size:17px}
   }
 
   /* ============ POR QUÉ BRASIL ============ */
@@ -289,15 +218,6 @@
   .arg p b{
     font-family:"Playfair Display",serif;font-weight:600;font-style:italic;
     color:var(--green);
-  }
-  @media (max-width:560px){
-    .porque{padding:70px 0}
-    .porque-head{margin-bottom:36px}
-    .porque-head h2{font-size:32px}
-    .porque-head .lede{font-size:18px}
-    .arg{padding:32px 22px;gap:12px}
-    .arg-num{font-size:38px}
-    .arg p{font-size:16px}
   }
 
   /* ============ FOTO HORIZONTAL (full bleed) ============ */
@@ -388,13 +308,6 @@
     color:rgba(245,240,232,.7);font-size:14.5px;line-height:1.55;margin:0;
   }
   .cred p em{color:rgba(245,240,232,.85);font-style:italic}
-  @media (max-width:560px){
-    .creds{padding:70px 0}
-    .creds-head{margin-bottom:36px}
-    .creds-head h2{font-size:32px}
-    .cred{padding:24px 0;gap:16px}
-    .cred h3{font-size:19px}
-  }
 
   /* ============ CTA FINAL ============ */
   .cta-final{
@@ -437,23 +350,66 @@
   }
   .cta-final .small .pip{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:middle;animation:pulse 2.2s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
-  @media (max-width:560px){
-    .cta-final{padding:80px 0}
-    .cta-final h2{font-size:28px;margin-bottom:32px}
-    .btn-whats{font-size:14px;padding:16px 26px}
-  }
 
-  /* ============ FOOTER (compact) ============ */
+
+  /* ============ FOOTER ============ */
   .foot{
-    background:var(--green-3);color:rgba(245,240,232,.6);
-    padding:48px 0;text-align:center;
-    font-family:"JetBrains Mono",monospace;
-    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    background:var(--green-3);color:rgba(245,240,232,.7);
+    padding:80px 0 36px;
   }
-  .foot a{color:rgba(245,240,232,.8);transition:.18s}
-  .foot a:hover{color:var(--orange)}
-  .foot .row{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap}
-  .foot .sep{opacity:.4}
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:64px;
+    padding-bottom:48px;border-bottom:1px solid rgba(245,240,232,.10);
+  }
+  @media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:36px}}
+  .foot .logo{margin-bottom:18px;font-size:26px}
+  .foot p.desc{
+    font-size:14px;line-height:1.6;color:rgba(245,240,232,.66);
+    max-width:42ch;margin:0 0 24px;
+  }
+  .foot .contact{
+    display:flex;flex-direction:column;gap:10px;
+    font-size:14px;
+  }
+  .foot .contact a{
+    display:inline-flex;align-items:center;gap:10px;
+    color:rgba(245,240,232,.82);transition:.18s;
+  }
+  .foot .contact a:hover{color:var(--orange)}
+  .foot .contact .ic{
+    width:18px;height:18px;color:var(--orange);
+  }
+  .foot h4{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:rgba(245,240,232,.5);
+    margin:0 0 18px;font-weight:500;
+  }
+  .foot ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .foot ul a{font-size:14px;color:rgba(245,240,232,.78);transition:.18s}
+  .foot ul a:hover{color:var(--orange)}
+  .badges{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    margin-top:6px;
+  }
+  .badge{
+    background:var(--cream);border-radius:10px;
+    padding:14px 16px;
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:5/3;overflow:hidden;
+  }
+  .badge img{
+    max-width:100%;max-height:100%;width:auto;height:auto;
+    object-fit:contain;display:block;
+  }
+  .foot-bottom{
+    padding-top:30px;display:flex;justify-content:space-between;align-items:center;gap:18px;
+    font-size:12px;color:rgba(245,240,232,.5);flex-wrap:wrap;
+  }
+  .foot-bottom .legal{display:flex;gap:24px}
+  .foot-bottom .legal a{color:rgba(245,240,232,.55);transition:.18s}
+  .foot-bottom .legal a:hover{color:var(--orange)}
+  .foot-bottom .mark{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
 
   /* ============ WHATSAPP FLOATING ============ */
   .whats{
@@ -491,21 +447,9 @@
       <a href="salidas.html">Salidas</a>
       <a href="#" class="is-active">Nosotros</a>
     </div>
-    <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="btn-cta" href="salidas.html">Encuentra tu experiencia</a>
   </div>
 </nav>
-
-<!-- ====== MENÚ MÓVIL ====== -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="index.html">Inicio</a>
-  <a href="index.html#spoart">Experiencias</a>
-  <a href="salidas.html">Salidas</a>
-  <a href="#" class="is-active">Nosotros</a>
-  <a class="btn-cta" href="#cta-final">Encuentra tu experiencia</a>
-</div>
 
 <!-- ====== HERO ====== -->
 <header class="hero" data-screen-label="Hero">
@@ -634,7 +578,7 @@
 <section class="cta-final" id="cta-final" data-screen-label="CTA Final">
   <div class="narrow">
     <h2>Cada viaje tiene a alguien detrás que <em>lo conoce de verdad</em><span class="accent">.</span></h2>
-    <a class="btn-whats" href="#" aria-label="Escríbenos por WhatsApp">
+    <a class="btn-whats" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil" aria-label="Escríbenos por WhatsApp">
       <span class="ic" aria-hidden="true">
         <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
           <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
@@ -648,42 +592,68 @@
 
 <!-- ====== FOOTER ====== -->
 <footer class="foot" data-screen-label="Footer">
-  <div class="row">
-    <span>© 2026 · SPOART · BRASIL</span>
-    <span class="sep">·</span>
-    <a href="mailto:info@spoartbrasil.com">info@spoartbrasil.com</a>
-    <span class="sep">·</span>
-    <span>Cadastur · Ministério do Turismo</span>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html">SPOART <span class="dot" aria-hidden="true"></span> BRASIL</a>
+        <p class="desc">Agencia de viajes experienciales a Brasil. Operamos con Cadastur — registro oficial del Ministerio de Turismo de Brasil.</p>
+        <div class="contact">
+          <a href="mailto:info@spoartbrasil.com">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            info@spoartbrasil.com
+          </a>
+          <a href="#">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @spoartbrasil
+          </a>
+          <a target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-1 4 8.5 8.5 0 01-7.5 4.5 8.4 8.4 0 01-4-1L3 21l1.7-5.4a8.5 8.5 0 1116.3-4.1z"/></svg>
+            WhatsApp directo
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="index.html#spoart">Experiencias</a></li>
+          <li><a href="salidas.html">Salidas 2026</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Prensa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Certificaciones</h4>
+        <div class="badges">
+          <div class="badge">
+            <img src="assets/logo-brasil.jpg" alt="Marca Brasil — Embratur" />
+          </div>
+          <div class="badge">
+            <img src="assets/logo-cadastur.jpg" alt="Cadastur — Ministério do Turismo" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span class="mark">© 2026 · SPOART · BRASIL</span>
+      <div class="legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <!-- ====== WHATSAPP FLOATING ====== -->
-<a class="whats" href="#" aria-label="WhatsApp">
+<a class="whats" target="_blank" rel="noopener" href="https://wa.me/34609655446?text=Hola%2C%20me%20interesa%20una%20de%20las%20salidas%20de%20Spoart%20Brasil" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
     <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.5L3 29l6.7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1 1.1-3.9-.3-.4a10.6 10.6 0 01-1.6-5.6c0-5.9 4.8-10.6 10.7-10.6S26.6 10.1 26.6 16 21.9 26.6 16 26.6zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.7.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
   </svg>
 </a>
-
-<script>
-(function(){
-  var toggle = document.querySelector('.nav-toggle');
-  var menu = document.getElementById('mobileMenu');
-  if(!toggle || !menu) return;
-  function setOpen(open){
-    menu.classList.toggle('open', open);
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  toggle.addEventListener('click', function(){
-    setOpen(!menu.classList.contains('open'));
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ setOpen(false); });
-  });
-})();
-</script>
 
 </body>
 </html>
