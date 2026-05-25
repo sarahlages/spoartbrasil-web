@@ -87,8 +87,75 @@
     transition:.18s;
   }
   .btn-cta:hover{background:var(--orange-hi);transform:translateY(-1px)}
+  /* mobile hamburger */
+  .nav-toggle{
+    display:none;
+    width:42px;height:42px;border-radius:10px;
+    background:transparent;color:var(--cream);
+    border:1px solid rgba(245,240,232,.22);
+    align-items:center;justify-content:center;cursor:pointer;
+    transition:.18s;
+  }
+  .nav-toggle:hover{background:rgba(245,240,232,.06);border-color:rgba(245,240,232,.4)}
+  .nav-toggle .bars{
+    display:flex;flex-direction:column;gap:5px;width:18px;
+  }
+  .nav-toggle .bars span{
+    display:block;height:1.6px;background:var(--cream);border-radius:2px;
+    transition:transform .22s ease, opacity .18s ease;
+    transform-origin:center;
+  }
+  .nav-toggle[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+
+  /* mobile drawer */
+  .nav-drawer{
+    display:none;
+    position:fixed;top:0;left:0;right:0;bottom:0;z-index:60;
+    background:var(--green);
+    padding:88px 28px 40px;
+    flex-direction:column;gap:28px;
+    overflow-y:auto;
+  }
+  .nav-drawer .drawer-links{
+    display:flex;flex-direction:column;gap:4px;
+    border-top:1px solid var(--green-line);padding-top:12px;
+  }
+  .nav-drawer .drawer-links a{
+    display:block;padding:18px 4px;
+    font-family:"Playfair Display",serif;font-weight:500;
+    font-size:32px;color:var(--cream);
+    border-bottom:1px solid var(--green-line);
+    letter-spacing:-.01em;transition:.18s;
+  }
+  .nav-drawer .drawer-links a:hover{color:var(--orange);padding-left:10px}
+  .nav-drawer .drawer-cta{
+    margin-top:8px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--orange);color:var(--green-3);
+    padding:18px 26px;border-radius:999px;
+    font-family:"Nunito",sans-serif;
+    font-size:14px;font-weight:700;letter-spacing:.02em;
+    width:100%;
+    transition:.18s;
+  }
+  .nav-drawer .drawer-cta:hover{background:var(--orange-hi)}
+  body.nav-open{overflow:hidden}
+  body.nav-open .nav-drawer{display:flex}
+
+  @media (max-width:900px){
+    .nav-inner{
+      grid-template-columns:auto auto;
+      justify-content:space-between;
+    }
+    .nav-links{display:none}
+    .btn-cta{display:none}
+    .nav-toggle{display:inline-flex}
+  }
+
   .btn-cta.lg{padding:18px 32px;font-size:15px}
-  @media (max-width:900px){.nav-inner{gap:16px}.nav-links{display:none}}
+  
 
   /* ============ HERO ============ */
   .hero{
@@ -448,6 +515,18 @@
       <a href="#" class="is-active">Nosotros</a>
     </div>
     <a class="btn-cta" href="salidas.html">Encuentra tu experiencia</a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="nav-drawer" aria-expanded="false" aria-label="Abrir menú">
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <div class="drawer-links">
+      <a href="index.html#spoart">Experiencias</a>
+      <a href="salidas.html">Salidas</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <a class="drawer-cta" href="salidas.html">Encuentra tu experiencia</a>
   </div>
 </nav>
 
@@ -655,5 +734,29 @@
   </svg>
 </a>
 
+
+<script>
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var drawer = document.getElementById('nav-drawer');
+  if (!btn || !drawer) return;
+  function close(){
+    btn.setAttribute('aria-expanded','false');
+    drawer.setAttribute('aria-hidden','true');
+    document.body.classList.remove('nav-open');
+  }
+  function open(){
+    btn.setAttribute('aria-expanded','true');
+    drawer.setAttribute('aria-hidden','false');
+    document.body.classList.add('nav-open');
+  }
+  btn.addEventListener('click', function(){
+    if (btn.getAttribute('aria-expanded') === 'true') close(); else open();
+  });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 900) close(); });
+})();
+</script>
 </body>
 </html>
